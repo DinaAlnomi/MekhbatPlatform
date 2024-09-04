@@ -18,19 +18,23 @@ const Tamweel = ({ financePlatforms }) => {
     setFilters({ ...filters, [name]: value });
   };
 
-  const sortByDate = (platforms, order) => 
-    platforms.sort((a, b) => {
+  const sortByDate = (tamweelList, order) => 
+    tamweelList.sort((a, b) => {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
       return order === 'الأجدد' ? dateB - dateA : dateA - dateB;
     });
 
-  const filteredAndSortedPlatforms = sortByDate(
+  const filteredAndSortedTamweel = sortByDate(
     filters.profitDistribution && filters.profitDistribution !== 'الكل'
-      ? financePlatforms.filter(platform => platform.profitType === filters.profitDistribution)
+      ? financePlatforms.filter(tamweel => tamweel.profitType === filters.profitDistribution)
       : financePlatforms,
     filters.date === 'الأقدم' ? 'الأقدم' : 'الأجدد'
   );
+
+  const handleButtonClick = (link) => {
+    window.open(link, '_blank');
+  };
 
   return (
     <div className="container">
@@ -47,22 +51,27 @@ const Tamweel = ({ financePlatforms }) => {
             <Filters filters={filters} handleInputChange={handleInputChange} />
           </div>
           <div className={styles.tamweelCardColumn}>
-            {filteredAndSortedPlatforms.map((platform) => (
-              <div key={platform.id} className={styles.detailedCard}>
+            {filteredAndSortedTamweel.map((tamweel) => (
+              <div key={tamweel.id} className={styles.detailedCard}>
                 <div className={styles.cardLogo}>
-                  <img src={platform.companyLogo} alt="Company Logo" />
+                  <img src={tamweel.companyLogo} alt="Company Logo" />
                 </div>
                 <div className={styles.cardContent}>
-                  <h3>{platform.companyName}</h3>
+                  <h3>{tamweel.companyName}</h3>
                   <div className={styles.separator}></div>
-                  <p className={styles.label}>{platform.profitType}</p>
-                  <p className={styles.label}>{platform.connections}</p>
-                  <p className={styles.label}>{platform.date}</p>
+                  <p className={styles.label}>{tamweel.profitType}</p>
+                  <p className={styles.label}>{tamweel.connections}</p>
+                  <p className={styles.label}>{tamweel.date}</p>
                   <div className={styles.labelGroup}>
-                    <p className={styles.label}>{platform.benefitPercentage}</p>
-                    <p className={styles.label}>{platform.opportunitySize}</p>
+                    <p className={styles.label}>{tamweel.benefitPercentage}</p>
+                    <p className={styles.label}>{tamweel.opportunitySize}</p>
                   </div>
-                  <button>اعرض الفرصة</button>
+                  <button 
+                    className={styles.walletsNoLinkStyle} 
+                    onClick={() => handleButtonClick(tamweel.link)}
+                  >
+                    اعرض الفرصة
+                  </button>
                 </div>
               </div>
             ))}
