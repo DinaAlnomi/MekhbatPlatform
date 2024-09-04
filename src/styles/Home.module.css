@@ -1,0 +1,545 @@
+
+/* ************************** */
+/*   قسم البطاقات (Cards Section)   */
+/* ************************** */
+
+.card:hover, .simpleCard:hover, .detailedCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+  /* CHECKED*/
+  .card, .simpleCard, .detailedCard {
+    transform: none;
+    box-shadow: none;
+  }}
+
+/* ************************** */
+/*  - IktitabatCard  */
+/* ************************** */
+/* General Styles for cards, simpleCard, and detailedCard */
+
+.iktitabatCardRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns per row - mainPage */
+  gap: 20px; /* Space between cards */
+  direction: rtl; /* Right-to-left direction for the grid container */
+}
+
+.card {
+  text-align: right; /* Ensure text inside cards aligns correctly */
+  border-radius: 17px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #F6F5F1;
+  font-family: 'IBMPlexSansArabic', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  direction: ltr; /* Ensure internal content flows left-to-right */
+  height: auto; /* Allow card to expand based on content - Should be removed later */
+  
+}
+
+.card h3 {
+  overflow: hidden;               /* Hides the overflowing text */
+  white-space: nowrap;            /* Prevents the text from wrapping to the next line */
+  text-overflow: ellipsis;        /* Displays ellipsis (...) when the text overflows */
+  max-width: 100%;  
+}
+
+.iktitabatCardRowCustom {
+  margin-top:32px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns per row */
+  column-gap: 20px;
+  row-gap: 47px; /* Only vertical space between rows */
+  direction: rtl; /* Right-to-left direction for the grid container */
+  
+}
+
+.iktitabatCardRowCustom .card {
+  text-align: right; /* Ensure text inside cards aligns correctly */
+  border-radius: 17px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #F6F5F1;
+  font-family: 'IBMPlexSansArabic', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  direction: ltr; /* Ensure internal content flows left-to-right */
+  height: auto; /* Allow card to expand based on content */
+  
+}
+
+
+/* Iktitabat cards for Tablets*/
+@media (max-width: 1200px) {
+  .iktitabatCardRowCustom {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns per row */
+    width: 90%;
+    margin-left: 50px;
+  }
+  .iktitabatCardRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns per row */
+  
+  }
+}
+
+/* Iktitabat cards for mobile screens */
+@media (max-width: 600px) {
+
+  .card { max-width: 270px; 
+    max-height:293px;
+  }
+
+  .iktitabatCardRowCustom {
+    margin-left: 23px;
+    display: flex;
+   flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+    gap: 24px; /* Adjust spacing between cards */
+  }
+
+  .iktitabatCardRowCustom .card {
+    width: 80%; /* Ensure each card takes the full width of the container */
+  }
+
+  .iktitabatCardRow {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px; /* Adjust spacing between cards if needed */
+  }
+
+  .iktitabatCardRow > .card {
+    flex: 0 0 80%; /* Show one card fully, adjust percentage if needed */
+    scroll-snap-align: start;
+  }
+
+  .iktitabatCardRow::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar on mobile for a cleaner look */
+  }
+  .sectionHeader h2 {
+    font-size: 24px;
+    color: #000000;
+    margin-right:25px!important;
+    margin-top: 0px !important;
+  }
+}
+
+/* Iktitabat cards for smaller screens / Can be removed*/
+@media (max-width: 414px) {
+  .iktitabatCardRow {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+}
+
+
+.cardLogo, .cardContent {
+  direction: ltr; /* Ensure internal content flows left-to-right */
+}
+
+
+.cardLogo {
+  text-align: right !important;
+  font-family: 'IBMPlexSansArabic', sans-serif;
+}
+
+.cardLogo img {
+  max-width: 125px; /* Ensure the image doesn't exceed the container width */
+  max-height: 60px; /* Maintain a fixed height but allow the width to adjust */
+  object-fit: contain;
+}
+
+.card h3 {
+  text-align: right !important;
+  font-size: 1.2em;
+  margin: 0 0 12px 0;
+  flex-shrink: 1; /* Allows the heading to shrink if necessary */
+  margin-bottom:3px;
+}
+
+/* هنا حق كلمة الاتصالات*/
+.cardContent p { 
+  text-align: right;
+  margin-bottom: 12px;
+  padding: 6px 8px; /* تقليل الحشو لتصغير الخلفية */
+  border-radius: 4px;
+  margin-right: 12px; /* المسافة بين مربع الاتصالات والتاريخ */
+  display: inline-block;
+  background: #DAD3BE;
+  font-weight: bold;
+  font-size: 10px;
+  color:#000000;
+ /* Add these properties */
+ overflow: hidden;               /* Hides the overflowing text */
+ white-space: nowrap;            /* Prevents the text from wrapping to the next line */
+ text-overflow: ellipsis;        /* Displays ellipsis (...) when the text overflows */
+ max-width: 50%;                /* Ensure it doesn't exceed the width of the container */
+
+}
+
+.cardContent .banks {
+  display: flex;
+  flex-direction: column; /* Arrange content in a column */
+  align-items: flex-end; /* Align to the right */
+  background: #DAD3BE; /* Background color */
+  border-radius: 4px;
+  
+}
+
+/* خصائص "البنوك المستلمة" */
+.cardContent .banks p {
+  margin-bottom:2px; /*  bottom margin to the text to give a little space between words and banks logo */
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+  padding-top: 0px;
+  
+}
+
+.cardContent .banks img {
+  width: 60px;
+  height: auto;
+  margin-left: 5px; /* Adjust spacing between logos */
+  margin-right:10px;
+}
+
+
+.cardContent .separator {
+  height: 1px;
+  background:#707070;
+  margin: 10px 0;
+  opacity: 0.14;
+}
+
+/*هنا حق التاريخ خصائصها */
+.cardContent .label {
+  background: #DAD3BE;
+  padding: 6px 8px; /* تقليل الحشو لتصغير الخلفية */
+  border-radius: 4px;
+  margin-right: 12px;
+  text-align: right !important; /* Ensure labels are aligned to the right */
+  display: inline-block;
+  max-width: 100px;
+  
+}
+
+.cardContent button {
+  font-family: 'IBMPlexSansArabic', sans-serif;
+  display: block;
+  width: 100%;
+  height: 27px;
+  padding: 5px;
+  margin-top: 12px;
+  margin-bottom: 1px;
+  margin-right: 24px;
+  background-color: #1B4242;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 10px;
+}
+
+.cardContent button:hover {
+  background-color: #287878;
+}
+
+/* ************************** */
+/*   بطاقة المحافط الرقمية (Simple Card)   */
+/* ************************** */
+.cardRow {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
+  gap: 20px; /* Space between cards */
+  justify-content: flex-start; /* Aligns cards to the right */
+  flex-direction: row;
+  
+}
+
+.cardColumn{ 
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
+  gap: 20px; /* Space between cards */
+  justify-content: flex-start; 
+  direction: rtl;
+}
+
+.simpleCard {
+  
+  background-color: #F6F4F2; /* Background color */
+  border-radius: 17px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: calc(25% - 20px); /* 4 cards per row, accounting for gap */
+  min-width: 220px; /* Ensure a minimum width for cards */
+  flex: 1 1 calc(25% - 20px); /* Allow cards to grow and shrink but maintain a minimum width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  margin: 10px 0; /* Vertical margin for spacing between rows */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'IBMPlexSansArabic', sans-serif; /* الخط */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.simpleCard .cardLogo {
+  text-align: right;
+  padding-right: 1px; /* Add right padding for spacing */
+}
+
+.simpleCard .cardLogo img {
+  width: 185px; 
+  height: 64px;
+  object-fit: contain;
+}
+
+.simpleCard h3 {
+  text-align: right;
+  font-size: 1.2em;
+  margin: 10px 0;
+  font-family: 'IBMPlexSansArabic', sans-serif; 
+}
+
+.simpleCard button {
+  font-family: 'IBMPlexSansArabic', sans-serif;
+  display: block;
+  width: 100%;
+  height: 27px;
+  padding: 5px;
+  margin-top: 12px;
+  margin-bottom: 1px;
+  background-color: #1B4242;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 10px;
+}
+
+.simpleCard button:hover {
+  background-color: #287878;
+}
+
+.walletsNoLinkStyle {
+  text-decoration: none;
+  color: #1B4242; 
+}
+
+/* wallet cards for tablets */
+@media (max-width: 1200px) {
+  .simpleCard {
+    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row */
+    min-width: 280px; 
+  }
+  .cardRow {
+    justify-content: center !important;
+  gap: 50px;
+  margin-right:20px ;
+  }
+  .cardColumn { 
+ gap: 47px;
+ margin-right: 120px;
+  }
+  
+}
+/* للايباد اذا قلبت الشاشة */
+@media (max-width: 1024px) {
+  .simpleCard {
+    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row */
+    min-width: 230px;
+  }
+  .cardRow { gap:5px;}
+  .cardColumn { 
+    gap: 15px;
+    margin-right: 55px;
+  }   
+}
+
+/* wallet cards for mobile screens */
+  @media (max-width: 600px) {
+    .cardRow {
+      display: flex;
+      flex-direction: row !important; /* Ensure row direction */
+      flex-wrap: nowrap; /* Prevent wrapping to a new line */
+      overflow-x: auto;
+      gap: 10px; /* Space between cards */
+      padding: 0 10px; /* Add padding to create space on the sides */
+      align-items: flex-start; /* Align items at the top */
+      margin-right: 5px;
+    }
+  
+    .simpleCard { 
+      min-width: 300px; /* Minimum width for cards */
+    }
+  
+    .cardColumn {
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      align-items: center; /* Center items horizontally */
+      gap: 16px; /* Space between cards */
+      overflow-y: auto; /* Allow vertical scrolling if needed */
+      padding: 16px; /* Optional padding */
+      margin-right: 0px;
+    }
+ 
+  }
+  
+
+/* ************************** */
+/* بطاقة منصات التمويل ة (Detailed Card)   */
+/* ************************** */
+.detailedCard {
+  width: 250px; 
+  height: auto; 
+  min-height: 250px; 
+  background-color: #f6f4f2 !important;
+  border-radius: 17px;
+  text-align: right !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'IBMPlexSansArabic', sans-serif; /* Font family */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 1px; /* Space between cards - 1 to make it less */
+  direction: ltr; /* Ensure internal content flows left-to-right */
+  
+}
+
+.tamweelCardRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns per row */
+  gap: 47px; 
+  direction: rtl; 
+}
+
+.tamweelCardColumn {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns per row */
+  gap: 47px; 
+  direction: rtl; 
+}
+
+/* tamweel cards for tablets*/
+@media (max-width: 1200px) {
+  .tamweelCardRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns per row */
+  }
+  
+  .tamweelCardColumn {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); 
+
+} 
+.detailedCard {
+  width: 85% !important; /* Ensure cards take up full column width */
+}
+}
+
+/* tamweel cards for mobile screens */
+@media (max-width: 600px) {
+  .tamweelCardRow {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0; 
+  }
+  .tamweelCardColumn {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 16px; /* Space between cards */
+  overflow-y: auto; /* Allow vertical scrolling if needed */
+  padding: 16px; /* Optional padding */
+}
+}
+
+/* smaller screens / could be removed later */
+@media (max-width: 414px) {
+  .tamweelCardRow {
+    width: 100%;
+    margin:2px;
+  }
+  .tamweelCardRow > .detailedCard {
+    flex: 0 0 80%; 
+    scroll-snap-align: start;
+    margin:9px;
+  }
+  
+  .tamweelCardRow::-webkit-scrollbar {
+    display: none; 
+  }
+}
+
+
+.detailedCard .cardLogo {
+  text-align: right !important; /* Ensure logo is aligned to the right */
+  flex: none; /* Prevent resizing */
+  margin-bottom: 10px; /* Space between logo and content */
+  object-fit: contain;
+  direction: ltr; /* Ensure internal content flows left-to-right */
+}
+
+.detailedCard .cardContent {
+  text-align: right;
+  font-family: 'IBMPlexSansArabic', sans-serif; /* Font family */
+  direction: ltr; /* Ensure internal content flows left-to-right */
+  
+}
+.detailedCard .cardContent h3 {
+  overflow: hidden;               /* Hides the overflowing text */
+  white-space: nowrap;            /* Prevents the text from wrapping to the next line */
+  text-overflow: ellipsis;        /* Displays ellipsis (...) when the text overflows */
+  max-width: 100%;  
+}
+.detailedCard .label {
+  background: #759283D5;
+  padding: 6px 8px; /* تقليل الحشو لتصغير الخلفية */
+  border-radius: 4px;
+  margin-right: 12px;
+  margin-bottom: 2px;
+  text-align: right !important; /* Ensure labels are aligned to the right */
+  display: inline-block;
+  max-width: 100%;
+   /* properties for overflow  */
+   overflow: hidden;               /* Hides the overflowing text */
+   white-space: nowrap;            /* Prevents the text from wrapping to the next line */
+   text-overflow: ellipsis;        /* Displays ellipsis (...) when the text overflows */
+   max-width: 30%;                /* Ensure it doesn't exceed the width of the container */
+ 
+}
+
+.detailedCard button {
+  font-family: 'IBMPlexSansArabic', sans-serif;
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 1px;
+  margin-right: 24px;
+  background-color: #1B4242;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.detailedCard button:hover {
+  background-color: #287878;
+}
+
+
+

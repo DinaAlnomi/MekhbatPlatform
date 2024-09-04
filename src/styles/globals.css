@@ -1,0 +1,207 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; /* matches background color - So if you'd scroll down, the space around you is going to be white*/
+}
+
+@font-face {
+  font-family: 'IBMPlexSansArabic';
+  src: url('/fonts/IBMPlexSansArabic-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBMPlexSansArabic';
+  src: url('/fonts/IBMPlexSansArabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Main Page */
+.container {
+  margin: 0 auto;
+  padding: 0 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  max-width: 1920px;
+  color: #333;
+  font-family: 'IBMPlexSansArabic', sans-serif; /* الخط */
+  overflow-x: hidden;
+  
+}
+
+/* This container is ONLY for homepgae */
+.homeContainer {
+  background-image: url('/images/BG.png'); 
+  background-size: cover; /* Ensure the background covers the entire page */
+  background-position: center; /* Center the background image */
+}
+
+
+.main {
+  width: 100%;
+  max-width: 1200px; /* Better range from 1080-1200 - The more = means very focused or zoomed POV */
+  margin: 0 auto;
+  font-family: 'IBMPlexSansArabic', sans-serif; /*  الخط */
+}
+
+.textSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100vh; /* Ensure it takes full viewport height */
+  font-family: 'IBMPlexSansArabic', sans-serif;
+}
+
+/* "المسافة بين "كل استثماراتك في" وكلمة "مخبات */
+.textSection p {
+  margin: 0;
+}
+
+/* "خصائص جملة "كل استثماراتك في */
+.textSection p:first-child {
+  top:423px;
+  right:463px;
+  font-size: 90px;
+  color: #000000;
+  font-weight: normal;
+}
+/* خصائص كلمة "مخبات" في الرئيسية */
+.textSection p:last-child {
+  top:535px;
+  font-size: 115px;
+  color: #1B4243;
+  font-weight: bold;
+  margin-bottom: 181px;
+}
+
+/* خصائص أيقونة السهم (المسافة وأنميشن التحريك المستمر) */
+.arrow {
+  text-align: center;
+  top:889; /*  ضبط الهامش العلوي لإضافة مسافة فوق السهم وبين النص*/
+  right:930.65px;
+  margin-bottom: 133.4px; /* هنا مسافة بين عنوان الاكتتابات والسهم*/
+}
+.arrow img {
+  width: 63.6px;
+  height: 58.7px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+ /* Styles for screens less than 1920px */
+@media (max-width: 1920px) {
+ 
+  .container {
+    padding: 0 10px; /* Add some padding for smaller screens if needed */
+  }
+}
+
+@media (max-width: 1200px) {
+  .sectionHeader h2 {  text-align: right;   margin-right: 100px;  margin-top: 70px;  margin-bottom: 32px; } 
+  .sectionHeader h3 { font-size: 26px !important; margin-right:30px; }}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+
+  .sectionHeader h3 { font-size: 26px;  margin-right:30px; }
+
+  .sectionHeader h2 {  font-size: 24px!important; color: #000000 !important; margin-right:25px!important; margin-top: 0px !important; }
+
+/* CHECKED*/
+  .textSection p:first-child {
+    font-size: 40px !important;
+    right: 49px;
+    left: 49px;
+  }
+/* CHECKED*/
+  .textSection p:last-child {
+    font-size: 56px !important;
+    line-height: 1.2; /* Adjust line height for better readability */
+    height: 35vh; /*كل ما قللتيه صار أبعد عن الهيدر */
+  }
+  /* CHECKED*/
+  .leftText {
+    font-size:10px !important; 
+  margin-left: 20px;
+  margin-bottom: 27px !important;
+}
+ /* CHECKED*/
+  .arrow {
+   right:178px;
+   left:178px;
+    margin-top: -220px; /* Reduce space above the arrow */
+  }
+    /* CHECKED*/
+  .arrow img {
+    width: 59px !important;
+    height: 64px !important;
+    animation: bounce 2s infinite;
+  }
+
+}
+
+
+/* المسافة بين كل سيكشن كارد + آخر سيكشن والفوتر */
+.cardsSection {
+  margin-bottom: 196px; /* Space between the cards section and footer */
+}
+
+/* هنا خصائص كلمة "الاكتتابات" فوق الكاردز */
+.sectionHeader h2 {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 48px;
+  right: 247px;
+  color: #1B4242;
+  font-family: 'IBMPlexSansArabic', sans-serif;/*  الخط */
+  margin-bottom: 15px;
+}
+/* Double class to use on phone*/
+.sectionHeader h3 {
+  text-align: right;
+  font-size: 48px;
+  right: 247px;
+  color: #1B4242;
+  font-family: 'IBMPlexSansArabic', sans-serif;/*  الخط */
+  margin-bottom: -38px;
+}
+
+.leftText {
+  display: inline-block;
+  left: 247px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #1B4242;
+  font-family: 'IBMPlexSansArabic', sans-serif; /* الخط */
+  margin-bottom: 38px;
+}
+
+.noLinkStyle {
+  text-decoration: none;
+  color: #1B4242;
+  transition: font-size 0.3s ease, font-weight 0.3s ease; /* Smooth transition for font size and weight */
+}
+
+.noLinkStyle:hover {
+  color: #1B4242;  
+  text-decoration: none; /* Ensures the underline is removed on hover */
+  font-size: 1.3em; /* Increase the font size on hover */
+  font-weight: bold; 
+}
+
